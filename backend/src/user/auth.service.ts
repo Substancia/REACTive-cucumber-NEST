@@ -6,7 +6,6 @@ import { JwtService } from '@nestjs/jwt';
 import { Request, Response } from 'express';
 import { User, UserDocument } from 'src/db/schemas/user.schema';
 import { CreateUserDto } from 'src/db/dto/create-user.dto';
-import { UpdateUserDto } from 'src/db/dto/update-user.dto';
 
 @Injectable()
 export class AuthService {
@@ -83,23 +82,4 @@ export class AuthService {
     return await this.model.countDocuments().exec()
   }
 
-  //dbtest functions
-
-  // async findAll(): Promise<User[]> {
-  //   return await this.model.find().exec();
-  // }
-
-  // async findOne(id: string): Promise<User> {
-  //   return await this.model.findById(id).exec();
-  // }
-
-  // async update(id: string, updateUserDto: UpdateUserDto): Promise<User> {
-  //   return await this.model.findByIdAndUpdate(id, updateUserDto).exec();
-  // }
-
-  // async delete(id: string): Promise<User> {
-  //   return await this.model.findByIdAndDelete(id).exec();
-  // }
-
-  
 }
