@@ -77,7 +77,7 @@ $ curl --request POST \
   --url http://localhost:4200/mock-db-users
 ```
 
-TODO: move this to a 
+TODO: this will be moved to a nest command in near future
 
 
 ## API Documentation
