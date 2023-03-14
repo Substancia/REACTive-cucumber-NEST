@@ -12,6 +12,7 @@ import { ChatController } from './chat/chat.controller';
 import { ChatService } from './chat/chat.service';
 
 @Module({
+  // TODO: move JWT secret to a .env file
   imports: [
     JwtModule.register({ secret: process.env.JWT_SECRET || 'jwt_secret' }),
     ConfigModule.forRoot({
