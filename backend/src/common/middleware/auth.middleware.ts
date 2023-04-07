@@ -16,6 +16,11 @@ export class AuthMiddleware implements NestMiddleware {
     }
     try {
       this.jwtService.verify(token);
+
+      // if verification was success, add user session specific information as extra headers for application to have user context.
+      const JWTPayload = this.jwtService.decode(token);
+      req.headers['X-Username'] = JWTPayload['username'];
+
     } catch (err) {
       res.status(401).send({ err });
       return;
