@@ -21,8 +21,8 @@ export class AuthService {
       
       if (userObj && userObj.password === password) {
         const accessToken = this.jwtService.sign({username:userObj.username}, {
-          // algorithm: 'RS256',
-          expiresIn: 3600,
+          //algorithm: 'HS256',
+          expiresIn: 3 * 24 * 3600,
         });
 
         console.log('Authenticated', userObj.username);
