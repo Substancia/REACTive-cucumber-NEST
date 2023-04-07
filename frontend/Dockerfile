@@ -15,4 +15,4 @@ RUN yarn install && yarn build
 CMD [ "yarn", "start" ]
 
 HEALTHCHECK --start-period=180s --interval=60s  \
-    CMD curl -f http://localhost:4200/healthcheck || exit 1
+    CMD curl -f http://localhost:3000/healthcheck || exit 1

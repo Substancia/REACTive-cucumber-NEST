@@ -1,0 +1,58 @@
+# Base docker-compose file
+version: "3"
+
+networks:
+  cucumber: {}
+
+services:
+  cucumber-backend:
+    hostname: cucumber-backend
+    container_name: cucumber-backend
+    build:
+      context: ./backend
+    volumes:
+      - ./backend:/usr/src/app
+      - /usr/src/app/node_modules
+    networks:
+      - cucumber
+    command: "yarn start"
+    environment:
+      NODE_ENV: development
+      SERVICE_NAME: cucumber-backend
+    ports:
+      - 4200:4200
+
+  cucumber-frontend:
+    hostname: cucumber-frontend
+    container_name: cucumber-frontend
+    build:
+      context: ./frontend
+    volumes:
+      - ./frontend:/usr/src/app
+      - /usr/src/app/node_modules
+    networks:
+      - cucumber
+    command: "yarn start"
+    environment:
+      NODE_ENV: development
+      SERVICE_NAME: cucumber-frontend
+    ports:
+      - 3000:3000
+
+  # cucumber-database:
+  #   hostname: cucumber-database
+  #   container_name: cucumber-database
+  #   build:
+  #     context: ./database
+  #   ports:
+  #     - 27017:27017
+  #   volumes:
+  #     - data-vol:/data/db
+  #   environment:
+  #     - MONGO_ROOT_PASSWORD=${DB_PASSWORD}
+  #     - MONGO_DATABASE=${DB_DATABASE}
+  #     - MONGO_HOST=${DB_HOST}
+  #     - MONGO_USERNAME=${DB_USERNAME}
+  #   networks:
+  #     - cucumber
+  #   restart: always
