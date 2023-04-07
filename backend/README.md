@@ -63,7 +63,7 @@ Step 1) For setting up the MongoDB instance in a docker container. We are skippi
 $ mkdir -p /data/db 
 
 # start a container by attaching storage to the folder in host machine 
-$ docker run -d -p 27017:27017 --name mongo-REACTive-cucumber-NEST -v data-vol:/data/db mongo:latest
+$ docker run -d -p 27017:27017 --name cucumber-mongo -v data-vol:/data/db mongo:latest
 ```
 
 TODO: authentication will be setup for the mongodb container.
