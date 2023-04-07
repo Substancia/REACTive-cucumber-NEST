@@ -18,7 +18,6 @@ const MONGO_URL = 'mongodb://localhost/';
 const MONGO_DB = 'nestjs-chatapp';
 
 @Module({
-  // TODO: move JWT secret to a .env file
   imports: [
     JwtModule.register({ secret: process.env.JWT_SECRET || 'jwt_secret' }),
     ConfigModule.forRoot({
