@@ -75,7 +75,7 @@ function LogIn() {
             /> 
             <input 
                 className="login-input"
-                type="text" 
+                type="password" 
                 placeholder="Password"
                 name="password"
                 onChange={(e) => handleChange(e)}
