@@ -31,7 +31,7 @@ const MONGO_DB = 'nestjs-chatapp';
     AppController,
     UserController,
     MessageController,
-    ChatController
+    ChatController,
   ],
   providers: [AppService, AuthService, MessageService, ChatService],
 })
