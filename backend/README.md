@@ -55,6 +55,31 @@ $ yarn run start:prod
 ### On kubernetes
 Follow https://github.com/Substancia/REACTive-cucumber-NEST/blob/main/kubernetes/README.md
 
+### Setting up database 
+Step 1) For setting up the MongoDB instance in a docker container. We are skipping the steps involved in installing docker. 
+
+```bash
+# creating a dedicated folder in the host for storage of mongo db data 
+$ mkdir -p /data/db 
+
+# start a container by attaching storage to the folder in host machine 
+$ docker run -d -p 27017:27017 --name cucumber-mongo -v data-vol:/data/db mongo:latest
+```
+
+TODO: authentication will be setup for the mongodb container.
+
+TODO: the above commands for setting up container will be moved to a docker-compose setup
+
+Step 2) After MongoDB container starts running, the following command can be run for seeding the newly setup DB with some mock data. 
+
+```bash
+$ curl --request POST \
+  --url http://localhost:4200/mock-db-users
+```
+
+TODO: this will be moved to a nest command in near future
+
+
 ## API Documentation
 
 POST `/user/login` - API to login an existing user
