@@ -1,5 +1,7 @@
 # REACTive cucumber NEST
 
+![image](https://github.com/cooliscool/REACTive-cucumber-NEST/assets/8917560/18b90994-e462-49be-a31b-5e2daa4d836e)
+
 An educational monorepo for a chat app written utilizing various technologies.
 
 ## Installation
